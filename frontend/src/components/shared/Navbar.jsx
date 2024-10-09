@@ -1,7 +1,5 @@
-
-
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import { Popover, PopoverTrigger, PopoverContent } from '../ui/popover';
 import { Avatar, AvatarImage } from '../ui/avatar';
 import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
@@ -9,6 +7,7 @@ import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 const Navbar = () => {
   // State to manage user authentication
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   return (
     <div className='bg-white text-gray-900 shadow-md'>
@@ -17,7 +16,7 @@ const Navbar = () => {
         <div className='flex items-center'>
           {/* KIIT Logo */}
           <img
-            src='/kiit-logo.png'  // Image path in public folder
+            src='/kiit-logo.png' // Image path in public folder
             alt='KIIT Logo'
             className='h-20 w-350 mr-2' // Smaller logo size
           />
@@ -87,12 +86,13 @@ const Navbar = () => {
             // If the user is not logged in, show the Login and Sign Up buttons
             <div className='flex items-center gap-4'>
               <button
-                onClick={() => setIsLoggedIn(true)}
+                onClick={() => navigate('/login')}  // Redirect to Login page on click
                 className='bg-green-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-green-600 transition-all duration-300'
               >
                 Login
               </button>
               <button
+                onClick={() => navigate('/signup')} // Redirect to Sign Up page on click
                 className='bg-green-400 text-white px-5 py-2 rounded-full shadow-md hover:bg-green-500 transition-all duration-300'
               >
                 Sign Up
@@ -106,4 +106,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

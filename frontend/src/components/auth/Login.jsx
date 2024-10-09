@@ -55,12 +55,12 @@ const Login = () => {
     }, [user, navigate]);
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-                <h1 className="text-2xl font-bold text-gray-800 text-center mb-6">Welcome Back!</h1>
-                <form onSubmit={submitHandler} className='space-y-4'>
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-300 via-white to-blue-300">
+            <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8 transform transition-all duration-300 hover:scale-105">
+                <h1 className="text-3xl font-extrabold text-gray-800 text-center mb-6">Welcome Back!</h1>
+                <form onSubmit={submitHandler} className='space-y-6'>
                     <div>
-                        <Label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</Label>
+                        <Label htmlFor="email" className="block text-sm font-semibold text-gray-700">Email</Label>
                         <Input
                             id="email"
                             type="email"
@@ -68,12 +68,12 @@ const Login = () => {
                             name="email"
                             onChange={changeEventHandler}
                             placeholder="you@example.com"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            className="mt-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                         />
                     </div>
 
                     <div>
-                        <Label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</Label>
+                        <Label htmlFor="password" className="block text-sm font-semibold text-gray-700">Password</Label>
                         <Input
                             id="password"
                             type="password"
@@ -81,12 +81,12 @@ const Login = () => {
                             name="password"
                             onChange={changeEventHandler}
                             placeholder="********"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                            className="mt-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                         />
                     </div>
 
                     <div className="my-4">
-                        <Label className="block text-sm font-medium text-gray-700 mb-2">Select Role</Label>
+                        <Label className="block text-sm font-semibold text-gray-700 mb-2">Select Role</Label>
                         <RadioGroup className="space-y-2">
                             <div className="flex items-center space-x-2">
                                 <Input
@@ -95,7 +95,7 @@ const Login = () => {
                                     value="student"
                                     checked={input.role === 'student'}
                                     onChange={changeEventHandler}
-                                    className="cursor-pointer focus:ring-indigo-500 h-4 w-4"
+                                    className="cursor-pointer focus:ring-blue-500 h-4 w-4"
                                 />
                                 <Label htmlFor="r1" className="text-sm text-gray-700">Student</Label>
                             </div>
@@ -106,7 +106,7 @@ const Login = () => {
                                     value="admin"
                                     checked={input.role === 'admin'}
                                     onChange={changeEventHandler}
-                                    className="cursor-pointer focus:ring-indigo-500 h-4 w-4"
+                                    className="cursor-pointer focus:ring-blue-500 h-4 w-4"
                                 />
                                 <Label htmlFor="r2" className="text-sm text-gray-700">Admin</Label>
                             </div>
@@ -114,17 +114,17 @@ const Login = () => {
                     </div>
 
                     {loading ? (
-                        <Button className="w-full flex justify-center items-center py-2 mt-4 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <Button className="w-full flex justify-center items-center py-2 mt-4 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait
                         </Button>
                     ) : (
-                        <Button type="submit" className="w-full py-2 mt-4 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <Button type="submit" className="w-full py-2 mt-4 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             Login
                         </Button>
                     )}
                     <div className='text-center mt-4'>
                         <span className='text-sm text-gray-600'>
-                            Don't have an account? <Link to="/signup" className='text-indigo-600 hover:text-indigo-800'>Signup</Link>
+                            Don't have an account? <Link to="/signup" className='text-blue-600 hover:text-blue-800 font-semibold'>Signup</Link>
                         </span>
                     </div>
                 </form>
